@@ -29,7 +29,12 @@ public class Calculator {
           for (String subjName : keys) {
                 System.out.println("Enter PGA for subject " + subjName);
                 int gpa = new Scanner(System.in).nextInt();
-                student.gpa.subjectGpa.put(subjName, gpa);
+                if((gpa>=0) && (gpa<=4)){
+                    student.gpa.subjectGpa.put(subjName, gpa);
+                }else {
+                    System.out.println("gpa must between 0 to 4. \n input again.");
+                    gpa = new Scanner(System.in).nextInt();
+                }
             }   
           
           studentMap.put(student.name, student);
